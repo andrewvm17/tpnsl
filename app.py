@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from flask import render_template
-from forms import RegistrationForm
+from forms import RegistrationForm, MatchReportForm
 from flask import request, redirect, url_for
 
 
@@ -17,7 +17,21 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'bç5\xdc\xe3*\x1eZ\x10\xd0\x96\x85\xa9\x15\xce<\x84\xfa'
 
 
-
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+    form = MatchReportForm()
+    if form.validate_on_submit():
+        # Save the data to Firebase
+        doc_ref = db.collection('match_reports').document()
+        doc_ref.set({
+            'home_team': form.home_team.data,
+            'home_team_score': form.home_team_score.data,
+            'away_team': form.away_team.data,
+            'away_team_score': form.away_team_score.data
+        })
+        flash('Match report for {} vs. {} submitted'.format(form.home_team.data, form.away_team.data))
+        return redirect(url_for('index'))
+    return render_template('admin.html', title='Report Match', form=form)
 
 @app.route("/registration", methods=['GET', 'POST'])
 def registration():

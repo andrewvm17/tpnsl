@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Button trigger modal -->
+
+<section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+          <div>
+            <h1>How to submit a <span class="text-warning"> Match Report </span></h1>
+            <p class="lead my-4">
+                Tracking match results is crucial to the integrity and competitiveness of our league. Please take the time to review
+                the expectations and standards for reporting match results below.
+            </p>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reportMatchModal">
+                Report Match Result
+            </button>
+          </div>
+          <img
+            class="img-fluid w-50 d-none d-sm-block"
+            src="../static/images/referee.png"
+            alt=""
+          />
+        </div>
+    </div>
+</section>
+
+
+
+  
+  <!-- Modal -->
+  
+  
+  <div class="modal fade" id="reportMatchModal" tabindex="-1" aria-labelledby="reportMatchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reportMatchModalLabel">Report Match Result</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- The WTForm goes here -->
+          <form method="POST">
+            {{ form.hidden_tag() }}
+            <p>{{ form.home_team.label }}<br>{{ form.home_team() }}</p>
+            <p>{{ form.home_team_score.label }}<br>{{ form.home_team_score() }}</p>
+            <p>{{ form.away_team.label }}<br>{{ form.away_team() }}</p>
+            <p>{{ form.away_team_score.label }}<br>{{ form.away_team_score() }}</p>
+            <p>{{ form.submit() }}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
