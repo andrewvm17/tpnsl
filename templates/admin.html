@@ -90,6 +90,7 @@
           <!-- The WTForm goes here -->
           <form method="POST">
             {{ form.hidden_tag() }}
+            <p>{{ form.division.label }}<br>{{ form.division() }}</p>
             <p>{{ form.home_team.label }}<br>{{ form.home_team() }}</p>
             <p>{{ form.home_team_score.label }}<br>{{ form.home_team_score() }}</p>
             <p>{{ form.away_team.label }}<br>{{ form.away_team() }}</p>
