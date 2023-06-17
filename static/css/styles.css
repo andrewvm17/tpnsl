@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Diphylleia';
+    src:url('/Users/andrewmuirhead/Library/Fonts/Diphylleia-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src:url('/Users/andrewmuirhead/Library/Fonts/RobotoCondensed-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoRegukar';
+    src:url('/Users/andrewmuirhead/Library/Fonts/RobotoCondensed-Regular.ttf') format('truetype');
+}

@@ -4,12 +4,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" rel="stylesheet">
+
     <title>{{ title }} - TPNSL</title>
     <!-- link to your CSS files here -->
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="font-family:'Roboto Condensed'">
             <div class="container">
                 <a href="/" class="navbar-brand">Takoma Park Soccer</a>
                 <a href="#" class="navbar-brand ms-auto">
@@ -22,23 +24,23 @@
                 <div class="collapse navbar-collapse" id="navmenu">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Home</a>
+                            <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/registration" class="nav-link">Registration</a>
+                            <a href="/registration" class="nav-link {% if request.path == '/registration' %}active{% endif %}">Registration</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/contacts" class="nav-link">Contacts</a>
+                            <a href="/contacts" class="nav-link {% if request.path == '/contacts' %}active{% endif %}">Contacts</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin" class="nav-link">Admin</a>
+                            <a href="/admin" class="nav-link {% if request.path == '/admin' %}active{% endif %}">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/standings" class="nav-link">Standings</a>
+                            <a href="/standings" class="nav-link {% if request.path == '/standings' %}active{% endif %}">Standings</a>
                         </li>
                     </ul>
                 </div>
-
+        
                 
             </div>
         </nav>
